@@ -1,0 +1,100 @@
+begin
+
+Se
+//9.1 Venda
+(Mediaexp(9,Close[5]) < Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) < Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) < Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) < Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close)[1] > Mediaexp(9,Close))
+então 
+paintbar(ClVermelho)
+
+
+Senão se
+//9.1 Compra
+(Mediaexp(9,Close[5]) > Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) > Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) > Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) > Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close)[1] < Mediaexp(9,Close))
+então 
+paintbar(ClVerde)
+
+
+//SETUP 9.2
+//Compra
+
+Senão se
+
+(Mediaexp(9,Close[5]) < Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) < Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) < Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) < Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close[1]) <= Mediaexp(9,Close)) e 
+(Mediaexp(9,Close) >= Mediaexp(9,Close)[1]) e
+(fechamento[1] > fechamento[2]) e
+(fechamento < minima[1]) 
+então
+PaintBar(ClAzul)
+
+//SETUP 9.2
+//VENDA 
+Senão se
+(Mediaexp(9,Close[5]) > Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) > Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) > Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) > Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close[1]) >= Mediaexp(9,Close)) e 
+(Mediaexp(9,Close) <= Mediaexp(9,Close)[1]) e
+(fechamento[1] < fechamento[2]) e
+(fechamento > maxima[1])  
+
+então
+PaintBar(ClMarrom)
+
+
+//SETUP 9.3
+//COMPRA
+
+Senão se
+
+(Mediaexp(9,Close[7]) < Mediaexp(9,Close)[6]) e
+(Mediaexp(9,Close[6]) < Mediaexp(9,Close)[5]) e
+(Mediaexp(9,Close[5]) < Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) < Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) < Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) < Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close[1]) <= Mediaexp(9,Close)) e 
+(fechamento[1] < fechamento[2]) e
+(fechamento < fechamento[2]) e
+(fechamento[2] > fechamento[3]) e
+(fechamento[1] > minima[2]) 
+então
+PaintBar(ClTeal)
+
+
+//SETUP 9.3
+//VENDA
+Senão se
+
+(Mediaexp(9,Close[7]) > Mediaexp(9,Close)[6]) e
+(Mediaexp(9,Close[6]) > Mediaexp(9,Close)[5]) e
+(Mediaexp(9,Close[5]) > Mediaexp(9,Close)[4]) e
+(Mediaexp(9,Close[4]) > Mediaexp(9,Close)[3]) e
+(Mediaexp(9,Close[3]) > Mediaexp(9,Close)[2]) e
+(Mediaexp(9,Close[2]) > Mediaexp(9,Close)[1]) e
+(Mediaexp(9,Close[1]) >= Mediaexp(9,Close)) e 
+
+(fechamento[1] > fechamento[2]) e
+(fechamento > fechamento[2]) e
+(fechamento[2] < fechamento[3]) e
+(fechamento[1] < maxima[2]) 
+então
+PaintBar(Clpurple);
+
+
+end;
+
+
+
